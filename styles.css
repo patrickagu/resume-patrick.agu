@@ -1,0 +1,245 @@
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --light-color: #ecf0f1;
+  --dark-color: #2c3e50;
+  --text-color: #333;
+  --text-light: #7f8c8d;
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-heading: 'Arial', sans-serif;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #f9f9f9;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 2rem 0;
+  box-shadow: var(--shadow);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem; /* Increased from 2rem */
+}
+
+.profile-pic {
+  width: 140px;  /* Increased from 120px */
+  height: 140px; /* Increased from 120px */
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--secondary-color);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease; /* Added smooth hover effect */
+}
+
+.profile-pic:hover {
+  transform: scale(1.05); /* Subtle hover animation */
+}
+
+header h1 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  margin-bottom: 0.3rem;
+  opacity: 0.9;
+}
+
+nav {
+  background-color: var(--secondary-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+main {
+  padding: 2rem 0;
+  background-color: white;
+  box-shadow: var(--shadow);
+  margin: 2rem auto;
+  border-radius: 8px;
+}
+
+section {
+  margin-bottom: 2.5rem;
+  padding: 0 1rem;
+}
+
+h2 {
+  color: var(--primary-color);
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--light-color);
+}
+
+h3 {
+  color: var(--secondary-color);
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.date {
+  color: var(--text-light);
+  font-style: italic;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.job {
+  margin-bottom: 2rem;
+}
+
+.skills-list {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.skills-list li {
+  background-color: var(--light-color);
+  padding: 1rem;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.skills-list li:hover {
+  background-color: #dfe6e9;
+  transform: translateY(-3px);
+}
+
+.cert-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.cert-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.cert-gallery img:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem 0;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav li {
+    margin: 0.3rem;
+  }
+
+  .skills-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+} 
+
+.github-link {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  position: relative;
+  padding: 0 2px;
+}
+
+.github-link:hover {
+  color: var(--accent-color);
+}
+
+.github-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--secondary-color);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.github-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
